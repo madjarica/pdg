@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('email', 100)->unique();;
             $table->string('password', 100);
-            $table->string('password_temp', 100);
-            $table->string('remember_token', 100);
-            $table->string('code', 60);
+            $table->string('password_temp', 100)->nullable();
+            $table->string('remember_token', 100)->nullable();
+            $table->string('code', 60)->nullable();
             $table->tinyInteger('status');
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
             $table->string('ip_address', 40);
             $table->dateTime('last_login_date')->nullable();
             $table->integer('number_of_logins');

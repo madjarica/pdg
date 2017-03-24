@@ -15,7 +15,7 @@ class UpdateUsersTable extends Migration
     {
         Schema::table('users', function(Blueprint $table) {
             $table->integer('language_id')->unsigned();
-            $table->string('frontend_token', 100);
+            $table->string('frontend_token', 100)->nullable();
 
             $table->foreign('language_id')->references('id')->on('languages')->onUpdate('cascade')->onDelete('cascade');
         });

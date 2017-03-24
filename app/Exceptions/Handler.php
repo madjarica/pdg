@@ -62,4 +62,39 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
+
+    protected function renderExceptionWithWhoops(Exception $e)
+    {
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+
+        return new \Illuminate\Http\Response(
+            $whoops->handleException($e),
+            $e->getStatusCode(),
+            $e->getHeaders()
+        );
+    }
+
+    /**
+     * Create a Symfony response for the given exception.
+     *
+     * @param  \Exception  $e
+     * @return mixed
+     */
+    protected function convertExceptionToResponse(Exception $e)
+    {
+        if (config('app.debug')) {
+            $whoops = new \Whoops\Run;
+            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+
+            return response()->make(
+                $whoops->handleException($e),
+                method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500,
+                method_exists($e, 'getHeaders') ? $e->getHeaders() : []
+            );
+        }
+
+        return parent::convertExceptionToResponse($e);
+    }
+
 }
