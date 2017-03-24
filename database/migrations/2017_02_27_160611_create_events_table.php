@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('event_type_id')->unsigned();
+            $table->integer('event_user_id')->unsigned();
             $table->string('event_name', 60);
             $table->text('event_description');
             $table->tinyInteger('event_status');
@@ -28,6 +29,7 @@ class CreateEventsTable extends Migration
             $table->integer('event_countries_id')->unsigned();
 
             $table->foreign('event_type_id')->references('id')->on('event_types')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('event_user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('event_cities_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('event_countries_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
