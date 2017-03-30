@@ -29,6 +29,18 @@
                 </ul>
             </li>
 
-        </ul>
-    </section>
+
+			<!-- Create Events -->
+
+			<li @if($title == 'Admin | Create Event' || $title == 'Admin | View Users' || $title == 'Admin | Create Event Type' || $title == 'Admin | Edit User') class="active treeview" @else class="treeview" @endif>
+                <a href="#">
+					<i class="fa fa-calendar" aria-hidden="true"></i> <span>Events</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+					<li @if($title == 'Admin | Create Event Type') class="active" @endif><a href="{{ URL::route('admin-create-event-type') }}"><i class="fa fa-circle-o"></i> Create Event Type</a></li>
+                    <li @if($title == 'Admin | Create Event') class="active" @endif><a href="{{ URL::route('admin-create-event') }}"><i class="fa fa-circle-o"></i> Create Event</a></li>
+                </ul>
+            </li>
+		</ul>
+	</section>
 </aside>

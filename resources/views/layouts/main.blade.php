@@ -27,17 +27,28 @@
 
         @if(Session::has('notice'))
             <br/>
-            <div class="alert alert-info">{{ Session::get('notice') }}</div>
+            {{-- <div class="alert alert-info">{{ Session::get('notice') }}</div> --}}
+
+			{{-- Ovaj 'role' atribut je mobile responsive --}}
+			<div class="alert alert-info" role="alert">
+				<strong>Info:</strong> {{ Session::get('notice')}}
+			</div>
         @endif
 
         @if(Session::has('error'))
             <br/>
-            <div class="alert alert-danger">{{ Session::get('error') }}</div>
+            {{-- <div class="alert alert-danger">{{ Session::get('error') }}</div> --}}
+			<div class="alert alert-danger" role="alert">
+				<strong>Error:</strong> {{ Session::get('error')}}
+			</div>
         @endif
 
         @if(Session::has('success'))
             <br/>
-            <div class="alert alert-success">{{ Session::get('success') }}</div>
+            {{-- <div class="alert alert-success">{{ Session::get('success') }}</div> --}}
+			<div class="alert alert-success" role="alert">
+				<strong>Success:</strong> {{ Session::get('success')}}
+			</div>
         @endif
 
 

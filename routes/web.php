@@ -43,6 +43,63 @@ Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function (
     ]);
 });
 
+/*
+|--------------------------------------------------------------------------
+|ADMIN CREATE EVENTS
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-create-event', [
+	'as' => 'admin-create-event',
+	'uses' => 'AdminEventController@getAdminCreateEvent'
+]);
+
+// Route::get('/admin-create-event', 'AdminEventController@getAdminCreateEvent')
+// 					->name('admin-create-event');
+
+
+/*
+|--------------------------------------------------------------------------
+| CSRF PROTECTION EVENTS
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function () {
+
+    Route::post('/admin-create-event-post', [
+        'as' => 'admin-create-event-post',
+        'uses' => 'AdminEventController@postCreateEvent'
+    ]);
+});
+
+/*
+|--------------------------------------------------------------------------
+|ADMIN CREATE EVENT TYPE
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/admin-create-event-type', [
+	'as' => 'admin-create-event-type',
+	'uses' => 'AdminEventTypeController@getAdminCreateEventType',
+]);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| CSRF PROTECTION EVENT TYPE
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function(){
+
+	Route::post('/admin-create-event-type-post', [
+		'as' => 'admin-create-event-type-post',
+		'uses' => 'AdminEventTypeController@postCreateEventType',
+	]);
+	
+});
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -92,5 +149,5 @@ Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function (
 //    $admin->attachPermission($canInvite);
 //    $admin->attachPermission($canAccessAdminArea);
 //
-//    return 'IDES POD MAC BATO! POD MAC!';
+//    return 'Food around the corner, food around the corner, food around the corner for me!';
 // });
