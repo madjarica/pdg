@@ -18,7 +18,7 @@ class AdminHomeController extends Controller {
 
     /*
     |--------------------------------------------------------------------------
-    | ADMIN CREATE USER
+    | ADMIN CREATE USER PAGE
     |--------------------------------------------------------------------------
     */
     public function getCreateUser() {
@@ -30,7 +30,7 @@ class AdminHomeController extends Controller {
 
     /*
     |--------------------------------------------------------------------------
-    | ADMIN VIEW USERS
+    | ADMIN VIEW USERS PAGE
     |--------------------------------------------------------------------------
     */
     public function getViewUsers() {

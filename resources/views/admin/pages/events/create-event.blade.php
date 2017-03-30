@@ -8,8 +8,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ URL::route('admin-home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Users</a></li>
-            <li class="active">Create Users</li>
+            <li><a href="#">Events</a></li>
+            <li class="active">Create Event</li>
         </ol>
     </section>
 
@@ -28,30 +28,26 @@
                         <div class="box-body">
 
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="event_name">Event name</label>
                                     <div class="input-group ">
                                         <span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
                                         <input id="event_name" type="event_name" class="form-control" placeholder="Event name" name="event_name" value="">
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                </div>
                             </div>
 
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								   <div class="form-group ">
-									   <label for="event_type_id">Event Type ID</label>
-									   <select id="event_type_id" name="event_type_id" class="form-control">
-										   <option value="1">Weddings</option>
-										   <option value="2">Birthdays</option>
-										   <option value="3">Celebrations</option>
-										    <option value="4">Anniversaries</option>
-											 <option value="5">Parties</option>
-									   </select>
-								   </div>
-							   </div>
+								   	<div class="form-group ">
+									   	<label for="event_type_id">Event Type ID</label>
+									   	<select id="event_type_id" name="event_type_id" class="form-control">
+										   	@foreach($event_types as $event_type)
+										   		<option value={{ $event_type->id }}>{{ $event_type->event_display_name }}</option>
+										   	@endforeach
+									   	</select>
+								   	</div>
+								</div>
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 									<div class="form-group ">
@@ -67,24 +63,25 @@
 							<!--Event cities and countries id-->
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-									<label for="event_cities_id">Event City ID</label>
-									<div class="input-group ">
-										<span class="input-group-addon"><i class="fa fa-globe"></i></span>
-										<select id="event_cities_id" name="event_cities_id" class="form-control class-country" title="event_cities_id">
-											<option value="1">London</option>
-											<option value="2">Beograd</option>
-											<option value="3">New York</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<label for="event_countries_id">Event Country ID</label>
 									<div class="input-group ">
 										<span class="input-group-addon"><i class="fa fa-globe"></i></span>
-										<select id="event_countries_id" name="event_countries_id" class="form-control class-country" title="event_countries_id">
-											<option value="1">England</option>
-											<option value="2">Serbia</option>
-											<option value="3">USA</option>
+										<select id="event_country_id" name="event_country_id" class="form-control class-country" title="event_country_id">
+											@foreach($countries as $country)
+												<option value={{ $country->id }}>{{ $country->country_name_eng }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<label for="event_cities_id">Event City ID</label>
+									<div class="input-group ">
+										<span class="input-group-addon"><i class="fa fa-globe"></i></span>
+										<select id="event_city_id" name="event_city_id" class="form-control class-country" title="event_city_id">
+											@foreach($cities as $city)
+												<option value={{ $city->id }}>{{ $city->city_name_eng }}</option>
+											@endforeach
 										</select>
 									</div>
 								</div>
@@ -120,15 +117,13 @@
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<label for="event_address">Event Address</label>
 									<div class="form-group">
-										<span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
-										<textarea class="form-control" id="event_address" rows="5"></textarea>
+										<textarea class="form-control" id="event_address" rows="5" name="event_address"></textarea>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<label for="event_description">Event Description</label>
 									<div class="form-group">
-										<span class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
-										<textarea class="form-control" id="event_description" rows="5"></textarea>
+										<textarea class="form-control" id="event_description" rows="5" name="event_description"></textarea>
 									</div>
 								</div>
 							</div>
