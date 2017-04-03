@@ -45,11 +45,41 @@ Route::get('/admin-create-event', [
 |ADMIN CREATE EVENT TYPE
 |--------------------------------------------------------------------------
 */
-
 Route::get('/admin-create-event-type', [
-    'as' => 'admin-create-event-type',
-    'uses' => 'AdminEventTypeController@getAdminCreateEventType',
+	'as' => 'admin-create-event-type',
+	'uses' => 'AdminEventTypeController@getAdminCreateEventType',
 ]);
+
+/*
+|--------------------------------------------------------------------------
+|ADMIN CREATE LANGUAGE
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-create-language', [
+	'as' => 'admin-create-language',
+	'uses' => 'AdminLanguageController@getAdminCreateLanguage',
+]);
+
+/*
+|--------------------------------------------------------------------------
+|ADMIN CREATE COUNTRY
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-create-country', [
+	'as' => 'admin-create-country',
+	'uses' => 'AdminCountryController@getAdminCreateCountry',
+]);
+
+/*
+|--------------------------------------------------------------------------
+|ADMIN CREATE CITY
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-create-city', [
+	'as' => 'admin-create-city',
+	'uses' => 'AdminCityController@getAdminCreateCity',
+]);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +117,36 @@ Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function (
         'as' => 'admin-create-event-type-post',
         'uses' => 'AdminEventTypeController@postCreateEventType',
     ]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE LANGUAGE (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/admin-create-language-post', [
+		'as' => 'admin-create-language-post',
+		'uses' => 'AdminLanguageController@postCreateLanguage',
+	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE COUNTRY (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/admin-create-country-post',[
+		'as' => 'admin-create-country-post',
+		'uses' => 'AdminCountryController@postCreateCountry',
+	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE CITY (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('admin-create-city-post', [
+		'as' => 'admin-create-city-post',
+		'uses' => 'AdminCityController@postCreateCity',
+	]);
 });
 
 /*

@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
- <section class="content-header">
+	
+	 <section class="content-header">
         <h1>
             Events
             <small>Create Event</small>
