@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminUserController extends Controller {
 
+    /*
+    |--------------------------------------------------------------------------
+    | ADMIN CREATE USER (POST)
+    |--------------------------------------------------------------------------
+    */
     public function postCreateUser() {
         $validator = Validator::make(Input::all(), [
 //            'email' => 'required|max:100|unique:users,email',

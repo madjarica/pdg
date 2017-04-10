@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Language;
+
 class AdminHomeController extends Controller {
 
     /*
@@ -18,19 +20,22 @@ class AdminHomeController extends Controller {
 
     /*
     |--------------------------------------------------------------------------
-    | ADMIN CREATE USER
+    | ADMIN CREATE USER PAGE
     |--------------------------------------------------------------------------
     */
     public function getCreateUser() {
         $title = 'Admin | Create User';
 
+		$languages = Language::all();
+		
         return view('admin.pages.users.create-user')
-            ->with('title', $title);
+            ->with('title', $title)
+			->with('languages', $languages);
     }
 
     /*
     |--------------------------------------------------------------------------
-    | ADMIN VIEW USERS
+    | ADMIN VIEW USERS PAGE
     |--------------------------------------------------------------------------
     */
     public function getViewUsers() {

@@ -119,46 +119,48 @@
                                     <div class="input-group ">
                                         <span class="input-group-addon"><i class="fa fa-globe"></i></span>
                                         <select id="language" name="language" class="form-control class-country" title="language">
-                                            <option value="1">English</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+											@foreach ($languages as $language)
+												<option value={{ $language->id }}>{{ $language->language_name_eng }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+							</div>
 
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    {{ csrf_field() }}
-                                    <button class="btn btn-success pull-right">Create User</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-hidden-sm col-hidden-xs">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">
-                            Explanation
-                        </h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, rerum?</p>
-                                <ul>
-                                    <li>Lorem ipsum.</li>
-                                    <li>Lorem ipsum.</li>
-                                    <li>Lorem ipsum.</li>
-                                    <li>Lorem ipsum.</li>
-                                </ul>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate labore neque odio odit possimus reiciendis rerum sed tenetur vero.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									{{ csrf_field() }}
+									<button class="btn btn-success pull-right">Create User</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-hidden-sm col-hidden-xs">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">
+							Explanation
+						</h3>
+					</div>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, rerum?</p>
+								<ul>
+									<li>Lorem ipsum.</li>
+									<li>Lorem ipsum.</li>
+									<li>Lorem ipsum.</li>
+									<li>Lorem ipsum.</li>
+								</ul>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam cupiditate labore neque odio odit possimus reiciendis rerum sed tenetur vero.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 @stop
