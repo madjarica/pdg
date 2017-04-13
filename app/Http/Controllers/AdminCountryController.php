@@ -24,10 +24,37 @@ class AdminCountryController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
+	|ADMIN VIEW COUNTRIES PAGE
+	|--------------------------------------------------------------------------
+	*/
+	public function getViewCountries() {
+
+		$title = 'Admin | View Countries';
+
+		$countries = Country::paginate(10);
+
+		$id = Country::all('id');
+		$country_code = Country::all('country_code');
+		$country_name_eng = Country::all('country_name_eng');
+		$country_name_srb = Country::all('country_name_srb');
+		$created_at = Country::all('created_at');
+
+		return view('admin.pages.countries.view-countries')
+			->with('title', $title)
+			->with('countries', $countries)
+			->with('id', $id)
+			->with('country_code', $country_code)
+			->with('country_name_eng', $country_name_eng)
+			->with('country_name_srb', $country_name_srb)
+			->with('created_at', $created_at);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
 	| ADMIN CREATE COUNTRY (POST)
 	|--------------------------------------------------------------------------
 	*/
-	
+
 	public function postCreateCountry() {
 		$validator = Validator::make(Input::all(), [
 			// 'country_code' => '',

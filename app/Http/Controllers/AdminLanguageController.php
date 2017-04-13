@@ -24,6 +24,33 @@ class AdminLanguageController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
+	| ADMIN VIEW LANGUAGES PAGE
+	|--------------------------------------------------------------------------
+	*/
+	public function getViewLanguages() {
+
+		$title = 'Admin | View Languages';
+
+		$languages = Language::paginate(10);
+
+		$id = Language::all('id');
+		$language_code = Language::all('language_code');
+		$language_name_eng = Language::all('language_name_eng');
+		$language_name_srb = Language::all('language_name_srb');
+		$created_at = Language::all('created_at');
+
+		return view('admin.pages.languages.view-languages')
+			->with('title', $title)
+			->with('languages', $languages)
+			->with('id', $id)
+			->with('language_code', $language_code)
+			->with('language_name_eng', $language_name_eng)
+			->with('language_name_srb', $language_name_srb)
+			->with('created_at', $created_at);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
 	| ADMIN CREATE LANGUAGE (POST)
 	|--------------------------------------------------------------------------
 	*/

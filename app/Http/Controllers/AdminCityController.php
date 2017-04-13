@@ -28,10 +28,38 @@ class AdminCityController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
+	|ADMIN VIEW CITIES PAGE
+	|--------------------------------------------------------------------------
+	*/
+	public function getViewCities() {
+		$title = 'Admin | View Cities';
+
+		$cities = City::paginate(10);
+
+		$id = City::all('id');
+		$country_id = City::all('country_id');
+		$city_name_eng = City::all('city_name_eng');
+		$city_name_srb = City::all('city_name_srb');
+		$zip_code = City::all('zip_code');
+		$created_at = City::all('created_at');
+
+		return view('admin.pages.cities.view-cities')
+			->with('title', $title)
+			->with('cities', $cities)
+			->with('id', $id)
+			->with('country_id', $country_id)
+			->with('city_name_eng', $city_name_eng)
+			->with('city_name_srb', $city_name_srb)
+			->with('zip_code', $zip_code)
+			->with('created_at', $created_at);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
 	| ADMIN CREATE CITY (POST)
 	|--------------------------------------------------------------------------
 	*/
-	
+
 	public function postCreateCity() {
 		$validator = Validator::make(Input::all(), [
 			// 'country_id' => '',

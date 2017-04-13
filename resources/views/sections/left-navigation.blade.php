@@ -32,35 +32,38 @@
 
 			<!-- Create Events -->
 
-			<li @if($title == 'Admin | Create Event' || $title == 'Admin | Create Event Type' || $title == 'Admin | Edit User') class="active treeview" @else class="treeview" @endif>
+			<li @if($title == 'Admin | Create Event' || $title == 'Admin | Create Event Type' || $title == 'Admin | View Events') class="active treeview" @else class="treeview" @endif>
                 <a href="#">
 					<i class="fa fa-calendar" aria-hidden="true"></i> <span>Events</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
 					<li @if($title == 'Admin | Create Event Type') class="active" @endif><a href="{{ URL::route('admin-create-event-type') }}"><i class="fa fa-circle-o"></i> Create Event Type</a></li>
                     <li @if($title == 'Admin | Create Event') class="active" @endif><a href="{{ URL::route('admin-create-event') }}"><i class="fa fa-circle-o"></i> Create Event</a></li>
+					<li @if($title == 'Admin | View Events') class="active" @endif><a href="{{ URL::route('admin-view-events') }}"><i class="fa fa-circle-o"></i> View Events</a></li>
                 </ul>
             </li>
 
 			<!-- Create Languages -->
 
-			<li @if($title == 'Admin | Edit User' || $title == 'Admin | Create Language') class="active treeview" @else class="treeview" @endif>
+			<li @if($title == 'Admin | View Languages' || $title == 'Admin | Create Language') class="active treeview" @else class="treeview" @endif>
 				<a href="#">
 					<i class="fa fa-language" aria-hidden="true"></i> <span>Languages</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">
 					<li @if($title == 'Admin | Create Language') class="active" @endif><a href="{{ URL::route('admin-create-language') }}"><i class="fa fa-circle-o"></i> Create Language</a></li>
+					<li @if($title == 'Admin | View Languages') class="active" @endif><a href="{{ URL::route('admin-view-languages') }}"><i class="fa fa-circle-o"></i> View Languages</a></li>
 				</ul>
 			</li>
 
 			<!-- Create Countries -->
 
-			<li @if($title == 'Admin | Create Country' ||  $title == 'Admin | Edit User') class="active treeview" @else class="treeview" @endif>
+			<li @if($title == 'Admin | Create Country' ||  $title == 'Admin | View Countries') class="active treeview" @else class="treeview" @endif>
 				<a href="#">
 					<i class="fa fa-globe" aria-hidden="true"></i> <span>Countries</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">
 					<li @if($title == 'Admin | Create Country') class="active" @endif><a href="{{ URL::route('admin-create-country') }}"><i class="fa fa-circle-o"></i> Create Country</a></li>
+					<li @if($title == 'Admin | View Countries') class="active" @endif><a href="{{ URL::route('admin-view-countries') }}"><i class="fa fa-circle-o"></i> View Countries</a></li>
 				</ul>
 			</li>
 
@@ -72,6 +75,7 @@
 				</a>
 				<ul class="treeview-menu">
 					<li @if($title == 'Admin | Create City') class="active" @endif><a href="{{ URL::route('admin-create-city') }}"><i class="fa fa-circle-o"></i> Create City</a></li>
+					<li @if($title == 'Admin | View Cities') class="active" @endif><a href="{{ URL::route('admin-view-cities') }}"><i class="fa fa-circle-o"></i> View Cities</a></li>
 				</ul>
 			</li>
 		</ul>
