@@ -47,11 +47,6 @@
 							</tbody>
 						</table>
 						{{-- pagination --}}
-						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-								<br>
-								{{ (count($id)) ? 'Showing ' . $countries->first()->id . ' to ' . $country->id . ' of ' . count($id) . ' entries.' : 'No results.'}}
-							</div>
 
 							<div class="text-center">
 								{!! $countries->links() !!}
