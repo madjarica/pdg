@@ -42,22 +42,9 @@ class AdminEventController extends Controller {
 
 		$events = Event::paginate(10);
 
-		$id = Event::all('id');
-		$event_name = Event::all('event_name');
-		$event_description = Event::all('event_description');
-		$event_address = Event::all('event_address');
-		$event_date = Event::all('event_date');
-		$created_at = Event::all('created_at');
-
 		return view('admin.pages.events.view-events')
 			->with('title' , $title)
-			->with('events', $events)
-			->with('id', $id)
-			->with('event_name', $event_name)
-			->with('event_description', $event_description)
-			->with('event_address', $event_address)
-			->with('event_date', $event_date)
-			->with('created_at', $created_at);
+			->with('events', $events);
 	}
     /*
     |--------------------------------------------------------------------------

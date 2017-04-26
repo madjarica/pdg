@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Language extends Model
-{
+class Language extends Model {
     protected $table = 'languages';
 
 	protected $fillable = [
@@ -13,4 +12,8 @@ class Language extends Model
 		'language_name_eng',
 		'language_name_srb',
 	];
+
+	public function users()	{
+		return $this->hasMany('App\Models\User');
+	}
 }

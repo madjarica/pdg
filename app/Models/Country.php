@@ -12,4 +12,8 @@ class Country extends Model {
         'country_name_eng',
         'country_name_srb',
     ];
+
+	public function cities() {
+		return $this->hasMany( 'App\Models\City' );
+	}
 }

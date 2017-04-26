@@ -46,8 +46,9 @@
 								@endforeach
 							</tbody>
 						</table>
+						
 						{{-- pagination --}}
-
+						<div class="row">
 							<div class="text-center">
 								{!! $countries->links() !!}
 							</div>

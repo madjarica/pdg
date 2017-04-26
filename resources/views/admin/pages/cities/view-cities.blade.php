@@ -39,7 +39,7 @@
 								@foreach ( $cities as $city )
 									<tr>
 										<th>{{ $city->id }}</th>
-										<th>{{ $city->country_id }}</th>
+										<th>{{ $city->country->country_name_eng }}</th>
 										<th>{{ $city->city_name_eng }}</th>
 										<th>{{ $city->city_name_srb }}</th>
 										<th>{{ $city->zip_code }}</th>
@@ -51,7 +51,7 @@
 
 						{{-- pagination --}}
 						<div class="row">
-
+							
 							<div class="text-center">
 								{!! $cities->links() !!}
 							</div>

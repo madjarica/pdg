@@ -34,7 +34,7 @@ class AdminCityController extends Controller {
 	public function getViewCities() {
 		$title = 'Admin | View Cities';
 
-		$cities = City::paginate(2);
+		$cities = City::paginate(10);
 
 		return view('admin.pages.cities.view-cities')
 			->with('title', $title)

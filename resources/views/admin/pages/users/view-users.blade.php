@@ -32,6 +32,7 @@
 					                  <th>First Name</th>
 					                  <th>Last Name</th>
 					                  <th>Phone Number</th>
+									  <th>Language</th>
 									  <th>Created At</th>
 				                </tr>
 			                </thead>
@@ -43,6 +44,7 @@
 										<th>{{ $user->first_name }}</th>
 										<th>{{ $user->last_name }}</th>
 										<th>{{ $user->phone_number }}</th>
+										<th>{{ $user->language->language_name_eng }}</th>
 										<th>{{ date('M j , Y', strtotime( $user->created_at)) }}</th>
 									</tr>
 								@endforeach
@@ -51,10 +53,6 @@
 
 						{{-- pagination --}}
 						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-								<br>{{ (count($id)) ? 'Showing ' . $users->first()->id . ' to ' . $user->id . ' of ' . count($id) . ' entries.' : 'No results.'}}
-							</div>
-
 							<div class="text-center">
 								{!! $users->links() !!}
 							</div>

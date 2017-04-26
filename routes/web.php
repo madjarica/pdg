@@ -12,6 +12,36 @@ Route::get('/', [
 
 /*
 |--------------------------------------------------------------------------
+| AUTH LOGIN
+|--------------------------------------------------------------------------
+*/
+Route::get('/login' , [
+	'as' => 'login',
+	'uses' => 'Auth\LoginController@showLoginForm',
+]);
+
+/*
+|--------------------------------------------------------------------------
+| AUTH LOGOUT
+|--------------------------------------------------------------------------
+*/
+Route::get('/logout', [
+	'as' => 'logout',
+	'uses' => 'Auth\LoginController@logout',
+]);
+
+/*
+|--------------------------------------------------------------------------
+| AUTH REGISTER
+|--------------------------------------------------------------------------
+*/
+Route::get('/register' , [
+	'as' => 'register',
+	'uses' => 'Auth\RegisterController@showRegistrationForm',
+]);
+
+/*
+|--------------------------------------------------------------------------
 | ADMIN CREATE USER
 |--------------------------------------------------------------------------
 */
@@ -122,6 +152,26 @@ Route::get('/admin-view-cities', [
 
 /*
 |--------------------------------------------------------------------------
+|ADMIN CREATE GIFT
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-create-gift', [
+	'as' => 'admin-create-gift',
+	'uses' => 'AdminGiftController@getAdminCreateGift',
+]);
+
+/*
+|--------------------------------------------------------------------------
+|ADMIN VIEW GIFTS
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin-view-gifts', [
+	'as' => 'admin-view-gifts',
+	'uses' => 'AdminGiftController@getViewGifts',
+]);
+
+/*
+|--------------------------------------------------------------------------
 | CSRF PROTECTION
 |--------------------------------------------------------------------------
 */
@@ -135,6 +185,26 @@ Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function (
 	Route::post('/admin-create-user-post', [
 		'as' => 'admin-create-user-post',
 		'uses' => 'AdminUserController@postCreateUser'
+	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| AUTH LOGIN (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/login-post', [
+		'as' => 'login-post',
+		'uses' => 'Auth\LoginController@login'
+	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| AUTH REGISTER (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/register-post', [
+		'as' => 'register-post',
+		'uses' => 'Auth\RegisterController@register'
 	]);
 
 	/*
@@ -165,28 +235,38 @@ Route::group(['middleware' => 'App\Http\Middleware\VerifyCsrfToken'], function (
 	Route::post('/admin-create-language-post', [
 		'as' => 'admin-create-language-post',
 		'uses' => 'AdminLanguageController@postCreateLanguage',
-		]);
+	]);
 
-		/*
-		|--------------------------------------------------------------------------
-		| ADMIN CREATE COUNTRY (POST)
-		|--------------------------------------------------------------------------
-		*/
-		Route::post('/admin-create-country-post',[
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE COUNTRY (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/admin-create-country-post',[
 		'as' => 'admin-create-country-post',
 		'uses' => 'AdminCountryController@postCreateCountry',
-		]);
+	]);
 
-		/*
-		|--------------------------------------------------------------------------
-		| ADMIN CREATE CITY (POST)
-		|--------------------------------------------------------------------------
-		*/
-		Route::post('admin-create-city-post', [
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE CITY (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/admin-create-city-post', [
 		'as' => 'admin-create-city-post',
 		'uses' => 'AdminCityController@postCreateCity',
-		]);
-	});
+	]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| ADMIN CREATE GIFT (POST)
+	|--------------------------------------------------------------------------
+	*/
+	Route::post('/admin-create-gift-post', [
+		'as' => 'admin-create-gift-post',
+		'uses' => 'AdminGiftController@postCreateGift',
+	]);
+});
 
 	/*
 	|--------------------------------------------------------------------------

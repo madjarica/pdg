@@ -69,13 +69,25 @@
 
 			<!-- Create Cities -->
 
-			<li @if($title == 'Admin | Create City' || $title == 'Admin | Create Country') class="active treeview" @else class="treeview" @endif>
+			<li @if($title == 'Admin | Create City' || $title == 'Admin | View Cities') class="active treeview" @else class="treeview" @endif>
 				<a href="#">
 					<i class="fa fa-building-o" aria-hidden="true"></i> <span>Cities</span> <i class="fa fa-angle-left pull-right"></i>
 				</a>
 				<ul class="treeview-menu">
 					<li @if($title == 'Admin | Create City') class="active" @endif><a href="{{ URL::route('admin-create-city') }}"><i class="fa fa-circle-o"></i> Create City</a></li>
 					<li @if($title == 'Admin | View Cities') class="active" @endif><a href="{{ URL::route('admin-view-cities') }}"><i class="fa fa-circle-o"></i> View Cities</a></li>
+				</ul>
+			</li>
+
+			<!-- Create Gifts -->
+
+			<li @if($title == 'Admin | Create Gift' ||  $title == 'Admin | View Gifts') class="active treeview" @else class="treeview" @endif>
+				<a href="#">
+					<i class="fa fa-gift" aria-hidden="true"></i><span>Gifts</span> <i class="fa fa-angle-left pull-right"></i>
+				</a>
+				<ul class="treeview-menu">
+					<li @if($title == 'Admin | Create Gift') class="active" @endif><a href="{{ URL::route('admin-create-gift') }}"><i class="fa fa-circle-o"></i> Create Gift</a></li>
+					<li @if($title == 'Admin | View Gifts') class="active" @endif><a href="{{ URL::route('admin-view-gifts') }}"><i class="fa fa-circle-o"></i> View Gifts</a></li>
 				</ul>
 			</li>
 		</ul>

@@ -21,4 +21,8 @@ class Event extends Model {
 		'event_city_id',
 		'event_country_id',
 	];
+
+	public function gifts() {
+		return $this->hasMany('App\Models\Gift');
+	}
 }
